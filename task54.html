@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Analytics Dashboard</title>
+
+<style>
+
+.card{
+display:inline-block;
+background:#3498db;
+color:white;
+padding:30px;
+margin:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<h2>Analytics Dashboard</h2>
+
+
+<div class="card">
+Users
+<h1 id="users">0</h1>
+</div>
+
+
+<div class="card">
+Messages
+<h1 id="messages">0</h1>
+</div>
+
+
+<div class="card">
+Online
+<h1 id="online">0</h1>
+</div>
+
+
+<script>
+
+
+let users=150;
+
+let messages=500;
+
+let online=25;
+
+
+document.getElementById("users")
+.innerHTML=users;
+
+
+document.getElementById("messages")
+.innerHTML=messages;
+
+
+document.getElementById("online")
+.innerHTML=online;
+
+
+</script>
+
+
+</body>
+</html>

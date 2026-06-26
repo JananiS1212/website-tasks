@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Real Time Chat</title>
+
+<style>
+body{
+    font-family:Arial;
+}
+
+.chat{
+    width:400px;
+    margin:auto;
+}
+
+#messages{
+    height:300px;
+    border:1px solid #ccc;
+    overflow:auto;
+    padding:10px;
+}
+
+input{
+    width:75%;
+    padding:10px;
+}
+
+button{
+    padding:10px;
+    background:blue;
+    color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="chat">
+
+<h2>Chat System</h2>
+
+<div id="messages"></div>
+
+<input id="msg" placeholder="Enter message">
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+
+<script>
+
+function sendMessage(){
+
+let msg =
+document.getElementById("msg").value;
+
+
+let box =
+document.getElementById("messages");
+
+
+box.innerHTML +=
+"<p><b>You:</b> "+msg+"</p>";
+
+
+setTimeout(()=>{
+
+box.innerHTML +=
+"<p><b>Bot:</b> Message received</p>";
+
+},500);
+
+
+document.getElementById("msg").value="";
+
+}
+
+</script>
+
+</body>
+</html>

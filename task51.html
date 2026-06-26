@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chatbot Integration</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+
+.chat-container {
+    width: 350px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px gray;
+}
+
+.chat-box {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.message {
+    padding: 8px;
+    margin: 8px;
+    border-radius: 5px;
+}
+
+.user {
+    background: #007bff;
+    color: white;
+    text-align: right;
+}
+
+.bot {
+    background: #e5e5e5;
+    color: black;
+}
+
+input {
+    width: 75%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+button {
+    width: 20%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="chat-container">
+
+<h2>AI Chatbot</h2>
+
+<div id="chatBox" class="chat-box">
+    <div class="message bot">
+        Hello! How can I help you?
+    </div>
+</div>
+
+<input id="userInput" placeholder="Type message...">
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+
+<script>
+
+function sendMessage(){
+
+    let input =
+        document.getElementById("userInput");
+
+    let message =
+        input.value.trim();
+
+
+    if(message === ""){
+        return;
+    }
+
+
+    addMessage(message,"user");
+
+
+    input.value="";
+
+
+    setTimeout(()=>{
+
+        let reply =
+            chatbotResponse(message);
+
+        addMessage(reply,"bot");
+
+    },500);
+
+}
+
+
+
+function addMessage(text,type){
+
+    let chatBox =
+        document.getElementById("chatBox");
+
+
+    let div =
+        document.createElement("div");
+
+
+    div.className =
+        "message " + type;
+
+
+    div.innerText = text;
+
+
+    chatBox.appendChild(div);
+
+
+    chatBox.scrollTop =
+        chatBox.scrollHeight;
+}
+
+
+
+function chatbotResponse(message){
+
+    message =
+        message.toLowerCase();
+
+
+    if(message.includes("hello")
+        || message.includes("hi")){
+
+        return "Hello! Nice to meet you.";
+
+    }
+
+
+    else if(message.includes("name")){
+
+        return "I am a JavaScript chatbot.";
+
+    }
+
+
+    else if(message.includes("time")){
+
+        return "Current time is "
+        + new Date().toLocaleTimeString();
+
+    }
+
+
+    else if(message.includes("help")){
+
+        return "I can answer basic questions.";
+
+    }
+
+
+    else if(message.includes("bye")){
+
+        return "Goodbye! Have a nice day.";
+
+    }
+
+
+    else{
+
+        return "Sorry, I don't understand. Please ask something else.";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
